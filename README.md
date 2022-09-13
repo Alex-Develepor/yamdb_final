@@ -116,4 +116,4 @@ Navigate to the site in your local rest client: http://127.0.0.1:8000
 For anyone who is interested in contributing to YaMDb REST API, please make sure you fork the project and make a pull request.
 
 
-https://github.com/Alex-Develepor/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
+![example workflow](https://github.com/Alex-Develepor/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
