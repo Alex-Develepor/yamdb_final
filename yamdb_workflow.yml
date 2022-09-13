@@ -7,18 +7,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
+        python-version: 3.7
+
     - name: Install dependencies
       run: | 
+        python -m pip install --upgrade pip 
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
-        # установка зависимостей
         pip install -r ./api_yamdb/requirements.txt 
 
     - name: Test with flake8 and django tests
       run: |
-        # запуск проверки проекта по flake8
         python -m flake8
         pytest
   build_and_push_to_docker_hub:
@@ -29,7 +31,6 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Set up Docker Buildx
-        # Вызов сборщика контейнеров docker
         uses: docker/setup-buildx-action@v1
       - name: Login to Docker
         uses: docker/login-action@v1
@@ -37,7 +38,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push to Docker Hub
-        # Пуш образа в Docker Hub
         uses: docker/build-push-action@v2
         with:
           context: ./api_yamdb
@@ -46,6 +46,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
