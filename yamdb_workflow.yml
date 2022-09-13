@@ -10,7 +10,6 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.7
     - name: Install dependencies
       run: | 
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
