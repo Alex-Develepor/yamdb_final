@@ -32,7 +32,7 @@ services:
 
 
     ports:
-      - "81:81"
+      - "80:80"
 
     volumes:
 
