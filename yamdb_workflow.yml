@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set up Python
       with
-        python-version: 3.7
+        python-version: 
 
     - name: Install dependencies
       run: | 
