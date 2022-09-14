@@ -117,3 +117,5 @@ For anyone who is interested in contributing to YaMDb REST API, please make sure
 
 
 ![example workflow](https://github.com/Alex-Develepor/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+
+Ссылка на сайт [http://ub1ka.ddns.net/redoc/]
